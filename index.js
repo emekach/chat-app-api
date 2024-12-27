@@ -14,6 +14,9 @@ import postRoutes from "./routes/posts.js";
 import { register } from "./controller/auth.js";
 import { createPost } from "./controller/posts.js";
 import { verifyToken } from "./middleware/auth.js";
+import User from "./model/User.js";
+import Post from "./model/Post.js";
+import { users, posts } from "./data/index.js";
 
 /* configuarations*/
 
@@ -62,6 +65,10 @@ mongoose
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server port: ${PORT}`);
+
+      //   // add one time
+      //   User.insertMany(users);
+      //   Post.insertMany(posts);
     });
   })
   .catch((error) => {

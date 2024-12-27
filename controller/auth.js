@@ -11,11 +11,12 @@ export const register = async (req, res) => {
       lastName,
       email,
       password,
-      picturePath,
       friends,
       location,
       occupation,
     } = req.body;
+
+    const picturePath = req.file ? req.file.originalname : null;
 
     console.log(req.body);
 
